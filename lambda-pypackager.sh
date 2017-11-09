@@ -27,8 +27,8 @@ case $ENVIRONMENT in
 	'python3.6')
 		ENV_LOCATION=$(which python3)
 		;;
-	esac
-done
+esac
+
 # Save constants
 TMP=/tmp/pypackager
 TMP_ENV=${TMP}/env/
@@ -47,6 +47,6 @@ cp -rf ${TMP_ENV}/lib/${ENVIRONMENT}/site-packages/* ${TMP_DST}
 cp -rf ${SOURCE} ${TMP_DST}
 # Zip package and save in provided ${OUT} destination
 cd ${TMP_DST}
-zip ${OUT} .
+zip -r ${OUT} .
 # Cleanup temporary directory
 cd && rm -rf /tmp/pypackager
